@@ -1,0 +1,62 @@
+@import "overrides.scss";
+
+@import "compass/css3";
+/*@import "foundation";*/
+@import "normalize";
+/*@import "foundation/functions/all";*/
+@import "foundation/settings";
+
+// Organic CSS
+
+@import "../../../vendor/organic-css/src/main.scss";
+@import "../../../vendor/organic-css/src/molecules/_reset.scss";
+
+// Comment out this import if you are customizing your imports below
+@import "__variables.scss";
+
+// Not all of Foundation which amounts to ~550KB ungzipped.
+/*@import "foundation";*/
+
+// JS-based Foundation Components
+/*@import "foundation/components/accordion";*/
+/*@import "foundation/components/alert-boxes";*/
+/*@import "foundation/components/dropdown";*/
+/*@import "foundation/components/dropdown-buttons";*/
+/*@import "foundation/components/joyride";*/
+/*@import "foundation/components/magellan";*/
+/*@import "foundation/components/orbit";*/
+/*@import "foundation/components/reveal";*/
+/*@import "foundation/components/split-buttons";*/
+/*@import "foundation/components/tabs";*/
+/*@import "foundation/components/tooltips";*/
+/*@import "foundation/components/top-bar";*/
+@import "foundation/components/offcanvas";
+
+// Non-JS-based Foundation Components
+@import "foundation/components/block-grid";
+/*@import "foundation/components/breadcrumbs";*/
+/*@import "foundation/components/button-groups";*/
+@import "foundation/components/buttons";
+@import "foundation/components/clearing";
+/*@import "foundation/components/flex-video";*/
+
+// Heavy stuff.
+@import "foundation/components/forms";
+@import "foundation/components/grid";
+
+@import "foundation/components/inline-lists";
+@import "foundation/components/keystrokes";
+@import "foundation/components/labels";
+@import "foundation/components/pagination";
+/*@import "foundation/components/panels";*/
+/*@import "foundation/components/pricing-tables";*/
+/*@import "foundation/components/progress-bars";*/
+/*@import "foundation/components/side-nav";*/
+/*@import "foundation/components/sub-nav";*/
+/*@import "foundation/components/switches";*/
+/*@import "foundation/components/tables";*/
+/*@import "foundation/components/thumbs";*/
+@import "foundation/components/type";
+@import "foundation/components/visibility";
+
+@import "_defaults.scss";

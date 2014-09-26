@@ -1,0 +1,46 @@
+@import "_utils.scss";
+@import "compass/css3";
+.gallery {
+}
+.gallery li {
+}
+.gallery figure {
+}
+.gallery figcaption {
+}
+.gallery {
+  @extend .row;
+  @include cf;
+  padding: 0 0 1.5em;
+  figure {
+    @include inline-block;
+    @extend .large-4;
+    @extend .columns;
+    margin: 0 0 2em;
+    img {
+      padding-bottom: 30px;
+      border-bottom: 1px #ccc solid;
+    }
+    h2 {
+      text: {
+        align: center;
+        transform: uppercase;
+      }
+      font: {
+        size: 16px;
+        variant: small-caps;
+      }
+    }
+    p {
+      margin: 15px 0 0;
+      text: {
+        align: right;
+        transform: lowercase;
+      }
+      font: {
+        size: 14px;
+        variant: small-caps;
+      }
+    }
+  }
+}

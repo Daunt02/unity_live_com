@@ -1,0 +1,390 @@
+@charset "utf-8";
+
+// CUSTOM UTILS
+
+@import "_settings.scss";
+@import "_defaults.scss"; // or "local standards"
+@import "_utils.scss";
+
+
+// "reset"
+
+@import "compass/reset";
+
+
+// APP
+
+@import "app.scss";
+
+
+/**
+ * Basic Elements Defs
+ */
+
+body { 
+  color: #f2f2f2;
+}
+
+p { 
+
+}
+
+img {
+}
+
+figure {
+
+}
+
+table {
+  caption { }
+  tr.even { }
+  tr.odd { }
+  tr { 
+    th { } }
+  tr
+    td { 
+  } }
+
+i, em {
+
+}
+
+b, strong {
+
+}
+
+ol, ul {
+
+  li { 
+
+  } }
+
+ul {
+
+  li {
+
+  } }
+
+ol {
+
+  li {
+
+  } }
+
+/**
+ * Basic Anchor Defs
+ */
+
+@include anchors($a_default, $a_link, $a_visited, $a_hover, $a_active);
+
+
+// ======================================== //
+
+                // TEMPLATES
+
+// ======================================== //
+
+/**
+ * Base Template
+ *
+ * @tmpl        base.tmpl  
+ * @notes       Consider "_base.scss"
+ */
+
+body.base-template {
+  background-color: #fff;
+
+  .site-banner { 
+    //border-bottom: 1px coral solid;
+    padding: 20px 0 50px;
+
+    @extend .row;
+
+    a {
+      @extend .six;
+      @extend .columns;
+      display: block;
+      text: {
+        align: left;
+        indent: -9999px;
+      }
+      background: url('../../../img-ui/lauren-mcmanus-logo.png') $columnGutter 0 no-repeat;
+      height: 175px;
+    }
+
+    h1 {
+      @extend .three;
+      @extend .columns;
+    }
+
+    p {
+      @extend .three;
+      @extend .columns;
+    }
+
+    h1 { 
+      font: {
+        size: 40px;
+      }
+    }
+  }//.site-banner
+
+  .site-nav {
+    @extend .row;
+    padding: 40px 0 0;
+    div {
+      @extend .eight;
+      @extend .columns;
+      @extend .centered;
+      ul {
+        @include cf;
+        @extend .row;
+        li {
+          
+          @extend .two;
+          @extend .columns;
+
+          a {
+            display: block;
+            text-align: center;
+            font-variant: small-caps;
+            text-transform: uppercase;
+            font: {
+              family: "Antic";
+            }
+
+          }//a
+        }//li
+        .sibling { 
+        }//sibling
+        .selected { 
+        
+        }//selected
+      }
+    }
+  }
+
+  .site-page { 
+    @extend .row;
+
+    //border-top: 1px turquoise solid;
+    padding: 50px 0 0;
+
+    article.inner {
+      @extend .twelve;
+      @extend .columns;
+
+      .gallery {
+        @extend .row;
+        @include cf;
+        padding: 0 0 1.5em;
+        a {
+          @include inline-block;
+          @extend .four;
+          @extend .columns;
+          margin: 0 0 2em;
+          img {
+            padding-bottom: 30px;
+            border-bottom: 1px #ccc solid;
+          }
+          h2 { 
+            text: {
+              align: center;
+              transform: uppercase;
+            }
+            font: {
+              size: 16px;
+              variant: small-caps;
+            }
+          }
+          p {
+            margin: 15px 0 0;
+            text: {
+              align: right;
+              transform: lowercase;
+            }
+            font: {
+              size: 14px;
+              variant: small-caps;
+            }
+          }
+        }
+      }//.gallery
+
+    }//article.inner
+  }//.site-page
+  .site-footer { 
+
+  }//.site-footer
+}//body.base-template
+
+/**
+ * Not Found Template
+ *
+ * @tmpl        404.tmpl
+ */
+
+body.notfound-template {
+
+}//body.notfound-template
+
+/**
+ * Critical Error
+ *
+ * @tmpl        500.tmpl
+ * @note        Crit!
+ */
+
+body.criticalerror-template {
+
+}//body.criticalerror-template
+
+/**
+ * Home Template
+ *
+ * @tmpl        home.tmpl
+ */
+
+body.home-template {
+
+  .site-banner { }
+  .site-nav { }
+  .site-page { 
+  }//.site-page
+  .site-footer { }
+
+}//body.home-template
+
+/**
+ * Form Template
+ *
+ * @tmpl        form.tmpl
+ */
+
+body.form-template {
+
+}//body.form-template
+
+/**
+ * Contact Template 
+ *
+ * @tmpl        form-contact.tmpl
+ */
+
+body.form-contact-template {
+
+}//body.form-contact-template
+
+/**
+ * Page Template
+ *
+ * @tmpl        page.tmpl
+ */
+
+body.page-template {
+
+}//body.page-template
+
+/**
+ * Page Detail Template
+ *
+ * @tmpl        page-detail.tmpl
+ */
+
+body.page-detail-template {
+
+}//body.page-detail-template
+
+/**
+ * Page Gallery Template
+ *
+ * @tmpl        page-gallery.tmpl
+ */
+
+body.page-gallery-template {
+  .site-banner { 
+  }//.site-banner
+  .site-page {
+    .inner {
+      .gallery {
+        a:nth-last-child(3n+2) {
+          clear: left;
+        }
+      }
+    }
+  }//.site-page
+  .site-footer {
+
+  }//.site-footer
+}//body.page-gallery-template
+
+
+// ======================================== //
+
+            // RESPONSIVE TEMPLATES
+
+// ======================================== //
+
+/**
+ * Adaptations for Phone
+ */
+
+.breakpoint-phone body {
+
+}//.breakpoint-phone
+
+/**
+ * Adaptations for Small Tablets
+ */
+
+.breakpoint-small-tablet body {
+
+}//.breakpoint-small-table
+
+/**
+ * Adaptations for (normal) Tablets
+ */
+
+.breakpoint-tablet body {
+
+}//.breakpoint-tablet
+
+/**
+ * Adaptations for Widescreens (The usual suspects)
+ */
+
+.breakpoint-widescreen body {
+
+  .site-banner {
+    @include note(".site-banner");
+
+  }//.site-banner
+
+  .site-page {
+    @include note(".site-page");
+    article.inner {
+    }//article.inner
+  }//.site-page
+
+  .site-footer {
+    @include note(".site-footer");
+    @extend .row;
+    .license {
+      @extend .six;
+      @extend .columns;
+    }
+
+  }//.site-footer
+
+}//.breakpoint-widescreen
+
+/**
+ * Adapatations for Retina displays
+ */
+
+.breakpoint-retina body { 
+
+}//.breakpoint-retina
+
+

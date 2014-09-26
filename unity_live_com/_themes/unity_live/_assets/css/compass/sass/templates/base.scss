@@ -1,0 +1,114 @@
+// @fileOverview
+// Django Templates.
+
+@import "../_utils";
+@import "compass/css3";
+
+/**
+ * Base Template
+ *
+ * @tmpl        base.tmpl  
+ * @notes       Consider "_base.scss"
+ */
+body.base-template {
+
+  .site-toolbar {
+    display: none;
+  }
+
+  .site-banner { 
+
+    @extend .row !optional;
+
+    a {
+      display: block;
+      height: 179px;
+      @extend .columns !optional;
+      @extend .small-6 !optional;
+      @extend .medium-6 !optional;
+      @extend .large-6 !optional;
+      @extend .small-centered !optional;
+      @extend .medium-centered !optional;
+      @extend .large-centered !optional;
+      text: {
+        indent: -9999px;
+      }
+      background: url('../../../img-ui/jahjah-logo.png') 0 0 no-repeat;
+      background-size: contain;
+    }//.site-banner
+
+    h1 {
+      @extend .large-3 !optional;
+      @extend .columns !optional;
+    }
+
+    p {
+      @extend .large-3 !optional;
+      @extend .columns !optional;
+    }
+
+    h1 { 
+      font: {
+        size: 40px;
+      }
+    }
+  }//.site-banner
+
+  .site-nav {
+    @extend .row !optional;
+    ul {
+      list-style: none;
+    }
+    padding: 40px 0 0;
+    div {
+      @extend .large-12 !optional;
+      @extend .large-centered !optional;
+      @extend .columns !optional;
+      ul {
+        @include cf;
+        @extend .row !optional;
+        li {
+          
+          @extend .large-2 !optional;
+          @extend .columns !optional;
+
+          a {
+            display: block;
+            text-align: center;
+            font-variant: small-caps;
+            text-transform: uppercase;
+            font: {
+              family: "Antic";
+            }
+
+          }//a
+        }//li
+        .sibling { 
+        }//sibling
+        .selected { 
+        
+        }//selected
+      }
+    }
+  }
+
+  .site-page { 
+    @extend .row !optional;
+
+    //border-top: 1px turquoise solid;
+    padding: 50px 0 0;
+
+    article.inner {
+      @extend .large-12 !optional;
+      @extend .columns !optional;
+    }//article.inner
+  }//.site-page
+
+  .site-footer { 
+    @extend .row !optional;
+    section {
+      @extend .large-4 !optional;
+      @extend .columns !optional;
+    }
+  }//.site-footer
+}//body.base-template

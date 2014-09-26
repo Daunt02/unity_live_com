@@ -1,0 +1,14 @@
+settings.py
+*.pyc
+*.swo
+*.swp
+*.py~
+*.scssc
+_log
+_log/*
+<<<<<<< HEAD
+db.sqlite-backup
+=======
+prod.sqlite
+prod.sqlite-initial
+>>>>>>> 7e7ddb79c6d848c3041c6b5e495f452b4939e3d3

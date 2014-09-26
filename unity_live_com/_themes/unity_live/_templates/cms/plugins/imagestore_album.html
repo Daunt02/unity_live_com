@@ -1,0 +1,45 @@
+{% load thumbnail %}
+
+<ul class='gallery'>
+  {% for image in album.images.all %}
+    {% thumbnail image.image '400x400' crop='center' as im %}
+      {% thumbnail image.image '600x600' as full %}
+        <li>
+          <figure>
+
+            {% include 'mini_charge/base_plugin.tmpl' with instance=image.charge_set.all.0 %}
+
+            <img 
+              class='preview {{ im.tags }}'
+              {% if image.title %}
+              alt='{{ image.title }}'
+              {% endif %}
+              src='{{ full.url }}'
+              data-title='{{ image.title }}'
+              data-caption='{{ image.description }}'
+            />
+
+            <a 
+              title="Full URL: {{ full.url }}"
+              href="{{ image.get_absolute_url }}"
+            >
+              {% if image.title %}
+              <figcaption>
+
+                {% if image.title %}
+                  <h2>{{ image.title }}</h2>
+                {% endif %}
+
+                {% if image.description %}
+                  <p>{{ image.description }}</p>
+                {% endif %}
+
+              </figcaption>
+              {% endif %}
+            </a>
+          </figure>
+        </li>
+      {% endthumbnail %}
+    {% endthumbnail %}
+  {% endfor %}
+</ul>

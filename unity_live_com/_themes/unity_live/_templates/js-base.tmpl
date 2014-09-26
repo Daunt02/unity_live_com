@@ -1,0 +1,49 @@
+<script type="text/javascript">
+  Modernizr.load([
+    {
+      test: (!!window.matchMedia),
+      nope: ['{{ ASSETS_URL}}/vendor/matchMedia-oldie.js']
+    },
+    {
+      load: [
+        '{{ ASSETS_URL }}vendor/jquery/jquery.min.js',
+        '{{ ASSETS_URL }}vendor/foundation/js/foundation/foundation.js',
+        '{{ ASSETS_URL }}vendor/foundation/js/foundation/foundation.offcanvas.js',
+        //'{{ ASSETS_URL }}/vendor/jcarousel/lib/jquery.jcarousel.min.js',
+        //'{{ ASSETS_URL }}/vendor/jquery-waypoints/waypoints.min.js',
+        //'{{ ASSETS_URL }}/vendor/jquery-avgrund/js/jquery.avgrund.js',
+        '{{ ASSETS_URL }}vendor/metaquery/metaquery.jquery.js',
+        //'{{ ASSETS_URL }}/vendor/prettyphoto/js/jquery.prettyPhoto.js',
+        '{{ ASSETS_URL }}vendor/intense-images/intense.js',
+        '{{ ASSETS_URL }}vendor/eldarion-ajax/js/eldarion-ajax.min.js',
+        '{{ ASSETS_URL }}js/global.js'
+      ],
+      complete: function() {
+
+        /*
+         * Intense Images
+         */
+        var elements$ = document.querySelectorAll('.preview');
+        Intense( elements$ );
+
+        /*
+         * Carousel Container
+         */
+
+        /*
+         *var c_id = CarouselContainer.carousel_id;
+         *if (c_id) {
+         *  $('#carousel' + c_id).jcarousel();
+         *  $("a[rel^='gallery" + c_id + "']").prettyPhoto({
+         *    allow_resize: true,
+         *    changepicturecallback: function() {
+         *      $(".pp_overlay").css("height", $(document).height());
+         *    }
+         *  });
+         *}
+         */
+      }
+    }
+  ]);
+</script>
+<!-- End js-base.tmpl -->

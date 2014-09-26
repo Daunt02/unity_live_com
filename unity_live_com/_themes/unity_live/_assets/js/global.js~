@@ -1,0 +1,16 @@
+;(function($) {
+
+  $('.gallery a').each(function() {
+    
+    $(this).on('click', function(e) {
+      e.preventDefault();
+
+      var $a    = $(this),
+          href  = $a.prop('href');
+
+    });
+
+  });
+
+}(jQuery));
+

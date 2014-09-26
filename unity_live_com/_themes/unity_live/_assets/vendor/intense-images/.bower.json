@@ -1,0 +1,13 @@
+{
+  "name": "intense-images",
+  "homepage": "https://github.com/tholman/intense-images",
+  "_release": "863a83d9f5",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "863a83d9f535943ba6d3cf8e0ffda4559631f260"
+  },
+  "_source": "git@github.com:tholman/intense-images.git",
+  "_target": "*",
+  "_originalSource": "git@github.com:tholman/intense-images.git"
+}

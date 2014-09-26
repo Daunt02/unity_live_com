@@ -1,0 +1,97 @@
+<!--
+  @fileOverview
+
+  Modular plugin for an image with a price specification.
+-->
+{% if instance.amount %}
+<div
+  itemtype='https://schema.org/PaymentChargeSpecification'
+  itemscope
+  class='mini-charge mini-charge__form'
+>
+  {% if error %}
+    <div class='alert alert--error'><p>{{ error }}</p>
+  {% endif %}
+
+  <form
+    action='{{SITE_URL}}/charge/'
+    method='POST'
+    class='form ajax'
+    data-stripe-key='{{ STRIPE_PUBLIC_KEY }}'
+    data-replace-closest='.mini-charge__form'
+  >
+
+    {% csrf_token %}
+
+    <meta
+      itemprop='eligibleQuantity'
+      content='{{instance.quantity}}'
+    />
+
+    <input
+      name='stripe_token'
+      type='hidden'
+    />
+
+    {% if instance.name %}
+      <h1
+        itemprop='name'
+        class='mini-charge__price-structure__title'
+      >{{instance.name}}</h1>
+    {% endif %}
+    
+    {% if instance.description %}
+      <p
+        itemprop='description'
+        class='mini-charge__price-structure__description'
+      >{{instance.description}}</p>
+      <input
+        type="hidden"
+        name="description"
+        value="{{instance.description}}"
+      />
+    {% endif %}
+
+    <div class='mini-charge__price-structure'>
+
+      <span
+        class='mini-charge__price-structure__base-price'
+        itemprop='price'
+      >
+        {{instance.amount}}
+      </span>
+
+      <input
+        type="hidden"
+        name="amount"
+        value="{{instance.amount}}"
+      />
+
+      <span 
+        class='mini-charge__price-structure__currency'
+        itemprop='priceCurrency'
+      >
+        {{instance.currency}}
+      </span>
+
+      <input
+        type="hidden"
+        name="currency"
+        value="{{instance.currency}}"
+      />
+
+    </div><!-- .price-structure -->
+
+    {% if instance.amount > 0 %}
+      <div class='form-actions'>
+        <button
+          type='submit'
+          class='btn btn-primary charge-card'
+        >Buy</button>
+      </div>
+    {% endif %}
+
+  </form>
+
+</div>
+{% endif %}

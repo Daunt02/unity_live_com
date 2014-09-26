@@ -1,0 +1,23 @@
+{
+  "name": "metaquery",
+  "main": [
+    "metaquery.min.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "homepage": "https://github.com/benschwarz/metaquery",
+  "version": "1.2.3",
+  "_release": "1.2.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.2.3",
+    "commit": "d0f314158b77f432259b9b8483082478ff7f402a"
+  },
+  "_source": "git://github.com/benschwarz/metaquery.git",
+  "_target": "~1.2.3",
+  "_originalSource": "metaquery",
+  "_direct": true
+}

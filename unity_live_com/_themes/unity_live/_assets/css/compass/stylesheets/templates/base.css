@@ -1,0 +1,43 @@
+/**
+ * CSS3 Image Filter Tools
+ */
+/**
+ * Base Template
+ *
+ * @tmpl        base.tmpl  
+ * @notes       Consider "_base.scss"
+ */
+body.base-template .site-toolbar {
+  display: none;
+}
+body.base-template .site-banner a {
+  display: block;
+  height: 179px;
+  text-indent: -9999px;
+  background: url("../../../img-ui/jahjah-logo.png") 0 0 no-repeat;
+  background-size: contain;
+}
+body.base-template .site-banner h1 {
+  font-size: 40px;
+}
+body.base-template .site-nav {
+  padding: 40px 0 0;
+}
+body.base-template .site-nav ul {
+  list-style: none;
+}
+body.base-template .site-nav div ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+body.base-template .site-nav div ul li a {
+  display: block;
+  text-align: center;
+  font-variant: small-caps;
+  text-transform: uppercase;
+  font-family: "Antic";
+}
+body.base-template .site-page {
+  padding: 50px 0 0;
+}

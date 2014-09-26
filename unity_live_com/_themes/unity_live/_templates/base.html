@@ -1,0 +1,207 @@
+{% load i18n payments_tags staticfiles cms_tags sekizai_tags %}
+{% load url from future %}
+
+{% block dnsprefetch_base %}
+{% addtoblock "dnsprefetch_base" %}
+{% include "dnsprefetch-base.tmpl" %}
+{% endaddtoblock %}
+{% endblock %}
+
+{% block breakpoint_base %}
+{% addtoblock "breakpoint_base" %}
+{% include "breakpoint-base.tmpl" %}
+{% endaddtoblock %}
+{% endblock %}
+
+{% block css_base %}
+{% addtoblock "css" %}
+{% include "css-base.tmpl" %}
+{% endaddtoblock %}
+{% endblock %}
+
+{% block js_checkout %}
+{% addtoblock "js_checkout" %}
+{% include "js-checkout.tmpl" %}
+{% endaddtoblock %}
+{% endblock %}
+
+{% block js_analytics %}
+{% addtoblock "js_analytics" %}
+{% include "js-analytics.tmpl" %}
+{% endaddtoblock %}
+{% endblock %}
+
+{% block js_head %}
+{% addtoblock "js_head" %}
+{% include "js-head.tmpl" %}
+{% endaddtoblock %}
+{% endblock %}
+
+{% block js_base %}
+{% addtoblock "js" %}
+{% include "js-base.tmpl" %}
+{% endaddtoblock %}
+{% endblock %}
+
+{% block font_base %}
+{% addtoblock "font_base" %}
+{% include "font-base.tmpl" %}
+{% endaddtoblock %}
+{% endblock %}
+
+{% block site_nav %}
+{% addtoblock "site_nav" %}
+{% include "nav-base.tmpl" %}
+{% endaddtoblock %}
+{% endblock %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta 
+    charset="utf-8" 
+  />
+
+  <meta
+    name="csrfmiddlewaretoken"
+    content="{{ CSRF_TOKEN }}"
+  />
+
+  <meta
+    name="stripe_key"
+    content="{{ STRIPE_PUBLIC_KEY}}"
+  />
+
+  {% render_block "dnsprefetch_base" %}
+
+  <meta
+    name="viewport"
+    content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"
+  />
+
+  {% render_block "breakpoint_base" %}
+
+  <!-- End meta_head -->
+
+  <link 
+    rel="shortcut icon" 
+    href="{{ ASSETS_URL }}img/favicon.png" 
+  />
+  <!-- End extra -->
+
+  <title>
+    {% block title %}
+      {% page_attribute "page_title" %}
+    {% endblock %}
+  </title>
+
+  {% render_block "font_base" %}
+
+  {% render_block "css" %}
+
+  {% block head %}
+  {% endblock %}
+
+  {% render_block "js_head" %}
+
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+
+<body class="site-jahjah_works {% block body_class %}base-template {% endblock %}">
+
+{% cms_toolbar %}
+
+<!--
+   -{% block breadcrumb %}
+   -{% endblock %}
+   -->
+
+<div class="site-ui">
+
+  <nav class="site-toolbar">
+    <ul>
+      <li>
+        <form action="">
+          <ul>
+            <li>
+              <input
+                type="text"
+              />
+            </li>
+            <li>
+              <button type="submit" title="Search">&#8617;</button>
+            </li>
+          </ul>
+        </form>
+      </li>
+      <li>
+        <ul>
+          <li>
+            <a href="{% url 'socialauth_begin' 'twitter' %}?{{ redirect_querystring }}">tw</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <header role="banner" class="site-banner">
+    <a 
+      title="Jah Jah"
+      href="{{ SITE_URL }}"
+      class="logo"
+    >
+    Jah Jah
+    </a>
+  </header>
+
+  <nav class="site-nav">
+    {% render_block "site_nav" %}
+  </nav>
+
+  {% block site_page__before %}
+  <aside class="site-page--before">
+    {% placeholder "site_page__before" %}
+  </aside>
+  {% endblock %}
+
+  <section class="site-page">
+    <article class="inner">
+      {% placeholder "main" %}
+      <!-- End placeholder_main -->
+      {% block stripe_container %}
+      {% endblock %}
+      {% block content %}
+      {% endblock content %}
+      {% block content-related %}
+      {% endblock %}
+    </article><!-- End .inner -->
+  </section><!-- End .site-page -->
+
+  {% block site_page__after %}
+  <aside class="site-page--after">
+    {% placeholder "site_page__after" %}
+  </aside>
+  {% endblock %}
+
+  {% block site_footer %}
+  {# include "site-footer.tmpl" #}
+  {% endblock %}
+
+</div><!-- End .site-ui -->
+
+{% render_block "js" %}
+
+{% render_block "js_checkout" %}
+
+{% render_block "js_analytics" %}
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+/**
+ * @fileOverview
+ * A plugin for Stripe payments, implemented in django-cms for microgallery 
+ * level Hypermedia controls in the presentation layer.
+ */
+.mini-charge {
+  position: absolute;
+  left: -9999px;
+}
+
+.mini-charge__form button {
+  border: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+  text-align: center;
+  box-shadow: none;
+}
+
+.mini-charge__price-structure__title,
+.mini-charge__price-structure__description,
+.mini-charge__price-structure__currency,
+.mini-charge__price-structure__base-price {
+  position: absolute;
+  left: -9999px;
+}
+
+/**
+ * Intense Images MiniCharge Button
+ */
+.intense-images--container .mini-charge {
+  position: absolute;
+  left: 50%;
+  z-index: 9000;
+  top: 0;
+  margin-left: 0;
+}
+.intense-images--container .mini-charge button {
+  background: transparent;
+}
+
+/**
+ * Intense Images Active Caption
+ */
+.intense-images--container figcaption {
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding: 5px;
+}
+.intense-images--container figcaption h1,
+.intense-images--container figcaption h2 {
+  color: #fff !important;
+}
+.intense-images--container figcaption h1 {
+  padding: .5em;
+}
+.intense-images--container figcaption h2 {
+  padding: .5em;
+}

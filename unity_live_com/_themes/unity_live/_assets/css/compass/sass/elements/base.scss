@@ -1,0 +1,63 @@
+@import "_defaults.scss";
+@import "_utils.scss";
+
+/**
+ * Basic Elements Defs
+ */
+
+body { 
+  color: #f2f2f2;
+}
+
+p { 
+
+}
+
+img {
+}
+
+figure {
+
+}
+
+table {
+  caption { }
+  tr.even { }
+  tr.odd { }
+  tr { 
+    th { } }
+  tr
+    td { 
+  } }
+
+i, em {
+
+}
+
+b, strong {
+
+}
+
+ol, ul {
+
+  li { 
+
+  } }
+
+ul {
+
+  li {
+
+  } }
+
+ol {
+
+  li {
+
+  } }
+
+/**
+ * Basic Anchor Defs
+ */
+
+@include anchors($a_default, $a_link, $a_visited, $a_hover, $a_active);

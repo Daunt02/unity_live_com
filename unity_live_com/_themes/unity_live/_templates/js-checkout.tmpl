@@ -1,0 +1,44 @@
+<script type='text/javascript'>
+  Modernizr.load([
+    {
+      load: [
+        '{{SITE_URL}}/_assets/vendor/jquery/jquery.min.js',
+        '//checkout.stripe.com/v2/checkout.js'
+      ],
+      complete: function () {
+
+        $('body').on('click', '.charge-card', function (e) {
+
+          var
+          $form = $(this).closest('form'),
+          token = function (res) {
+            $form.find('input[name="stripe_token"]').val(res.id);
+            $form.trigger('submit');
+          },
+          handler = StripeCheckout.configure({
+            key   : $form.data('stripe-key'),
+            token : token
+          }),
+          stripeConfig = {
+            name        : $form.find('[itemprop="name"]').text(),
+            description : $form.find('[itemprop="description"]').text(),
+            amount      : (function () {
+              var capturedPrice = $form.find('[itemprop="price"]').text();
+              capturedPrice = capturedPrice
+                .replace(/^\s\s*/, '')
+                .replace(/\s\s*$/, '');
+              capturedPrice = parseFloat(capturedPrice) * 100;
+              return capturedPrice;
+            })()
+          };
+
+          handler.open(stripeConfig);
+
+          e.preventDefault();
+
+        });
+      }
+    }
+  ]);
+</script>
+<!-- End js-checkout.tmpl -->

@@ -1,0 +1,37 @@
+{% load thumbnail %}
+
+<ul
+  id='carousel{{ carousel.id }}'
+  class='{{ carousel.skin }}'
+>
+  {% for image in images %}
+    {% thumbnail image.image carousel.size crop='center' as im %}
+      {% thumbnail image.image carousel.full_size as full %}
+        <li>
+          <figure>
+            <a rel='gallery{{ carousel.id }}[pp_gal]' href='{{ full.url }}'>
+              <img
+                class='preview'
+                {% if image.title %}alt='{{ image.title }}'{% endif %}
+                src='{{ im.url }}'
+              />
+              <figcaption>
+                {% if image.title %}<h2>{{ image.title }}</h2>{% endif %}
+                {% if image.description %}<p>{{ image.description }}</p>{% endif %}
+              </figcaption>
+            </a>
+          </figure>
+        </li>
+      {% endthumbnail %}
+    {% endthumbnail %}
+  {% endfor %}
+</ul>
+
+<script type='text/javascript'>
+  var CarouselContainer = (function() {
+    var carousel_id = '{{ carousel.id }}';
+    return {
+      'carousel_id': carousel_id
+    }
+  })();
+</script>
